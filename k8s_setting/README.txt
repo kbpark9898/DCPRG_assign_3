@@ -44,8 +44,11 @@ assign_server.yaml 파일을 이용해 server deployment를 제작했습니다. 
 
 - java -jar BoooardGame-0.0.1-SNAPSHOT.jar 명령어를 통해 프로젝트를 빌드합니다.
 
-- kubectl get all 명령어를 사용해 my-server에 해당하는 NodePort service 의 외부 접속 포트를 확인합니다. (32001:XXXXX의 형태로 매핑되어있으며, XXXXX에 해당하는 포트번호를 가져옵니다.)
+- kubectl get all 명령어를 사용해 my-server에 해당하는 NodePort service 의 외부 접속 포트를 확인합니다.
+  (32001:XXXXX의 형태로 매핑되어있으며, XXXXX에 해당하는 포트번호를 가져옵니다.)
 
-- 로컬의 브라우저로 localhost:{위에서 가져온 port number} 에 접속하여 게시글을 작성하고, 불러와지는것을 확인합니다.
+- kubectl cluster-info 명령어를 사용해 k8s master ip를 가져옵니다.
+
+- 로컬의 브라우저로 {k8s master ip}:{위에서 가져온 my-server NodePort service port number} 에 접속하여 게시글을 작성하고, 불러와지는것을 확인합니다.
 
 
