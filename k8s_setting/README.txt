@@ -1,6 +1,6 @@
 0. 본 압축파일 구성
 
-DCPRG_assign_2 : 본 과제에 사용된 서버 소스코드 (스프링부트 프로젝트)
+DCPRG_assign_3 : 본 과제에 사용된 서버 소스코드 (스프링부트 프로젝트)
 
 assign_db.yaml : 본 과제에 사용된 DB deployment 및 pod  제작 yaml file
 
