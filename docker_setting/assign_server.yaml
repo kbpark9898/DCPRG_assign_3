@@ -1,0 +1,38 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: my-server
+  labels:
+    run: my-server
+spec:
+  type: NodePort
+  ports:
+  - port: 32001
+    protocol: TCP
+    targetPort: 8080
+    name: http
+  selector:
+    app: my-server
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-server
+  labels:
+    app: my-server
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: my-server
+  template:
+    metadata:
+      labels:
+        app: my-server
+    spec:
+      containers:
+      - name: springboot-pkb
+        image: kbpark9898/springboot_pkb:1.1
+        ports:
+        - containerPort: 8080
+        command: ["/bin/sh", "-ec", "while :; do echo '.'; sleep 5 ; done"]
